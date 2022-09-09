@@ -1,23 +1,14 @@
-import { useState } from 'react';
+import { useId } from 'react';
 import './App.css';
 
 function App() {
-	const [first, setFirst] = useState('');
+	const firstId = useId();
+	const secondId = useId()
 
-	const handleClick = (e) => {
-		setFirst(e.target.value);
-	};
-
-	const clear = () => {
-		setFirst('');
-	};
-
-	return (
-		<div className="App">
-			<input type="text" value={first} onChange={handleClick} />
-			<button onClick={clear}>Clear Input</button>
-		</div>
-	);
+	return <div className="App">
+		<h3>The first id generated is {firstId}</h3>
+		<h3>The second id generated is {secondId} and different from {firstId} </h3>
+	</div>;
 }
 
 export default App;
